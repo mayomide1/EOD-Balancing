@@ -19,8 +19,15 @@ body > h3 {
   display: block;
   width: 100%;
   max-width: 600px;
+  margin-top: 10px;
   margin-left: auto;
   margin-right: auto;
+}
+
+h1{
+    text-align: center;
+    margin-bottom: 10px;
+    color: #2563eb;
 }
 
 body > h2 {
@@ -76,7 +83,6 @@ input::placeholder {
   margin-bottom: 25px;
   margin-left: auto;
   margin-right: auto;
-
   padding: 18px;
   background: white;
   border-radius: 10px;
@@ -88,10 +94,8 @@ input::placeholder {
   max-width: 600px;
   margin: 30px auto 0;
   padding: 25px;
-
   background: white;
   border-radius: 12px;
-
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
 }
 
@@ -104,20 +108,16 @@ input::placeholder {
   margin-top: 25px;
   margin-bottom: 12px;
   padding-bottom: 8px;
-
   font-size: 18px;
   color: #111827;
-
   border-bottom: 1px solid #e5e7eb;
 }
 
 #calculation-report h3 {
   margin-top: 20px;
   padding: 15px;
-
   background: #eff6ff;
   border-radius: 8px;
-
   color: #1d4ed8;
 }
 
