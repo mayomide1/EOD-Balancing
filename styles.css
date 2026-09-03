@@ -1,0 +1,143 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f3f4f6;
+  color: #1f2937;
+  min-height: 100vh;
+  padding: 40px 20px;
+}
+
+body > input,
+body > h2,
+body > button,
+body > h3 {
+  display: block;
+  width: 100%;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+body > h2 {
+  margin-top: 28px;
+  margin-bottom: 12px;
+  font-size: 18px;
+  color: #111827;
+}
+
+input {
+  padding: 14px 16px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  background: white;
+  font-size: 15px;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+input::placeholder {
+  color: #9ca3af;
+}
+
+#calculate-btn {
+  margin-top: 30px;
+  padding: 14px 20px;
+  border: none;
+  border-radius: 8px;
+  background: #2563eb;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+}
+
+#calculate-btn:hover {
+  background: #1d4ed8;
+}
+
+#calculate-btn:active {
+  transform: scale(0.98);
+}
+
+#profit-or-loss {
+  max-width: 600px;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  margin-left: auto;
+  margin-right: auto;
+
+  padding: 18px;
+  background: white;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+#calculation-report {
+  max-width: 600px;
+  margin: 30px auto 0;
+  padding: 25px;
+
+  background: white;
+  border-radius: 12px;
+
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+#calculation-report p {
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
+#calculation-report h2 {
+  margin-top: 25px;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+
+  font-size: 18px;
+  color: #111827;
+
+  border-bottom: 1px solid #e5e7eb;
+}
+
+#calculation-report h3 {
+  margin-top: 20px;
+  padding: 15px;
+
+  background: #eff6ff;
+  border-radius: 8px;
+
+  color: #1d4ed8;
+}
+
+
+@media (max-width: 600px) {
+  body {
+    padding: 25px 15px;
+  }
+
+  body > h2 {
+    font-size: 17px;
+  }
+
+  input,
+  #calculate-btn {
+    font-size: 14px;
+  }
+
+  #calculation-report {
+    padding: 18px;
+  }
+}
+
