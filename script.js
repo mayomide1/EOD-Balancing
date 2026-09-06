@@ -18,9 +18,10 @@ function calculate() {
   const currentPosAmountValue = Number(currentPosAmount.value);
   const posCapitalValue = Number(posCapital.value);
   const posCalculationResult = currentPosAmountValue - posCapitalValue - Number(salesPosValue);
+  const totalCapital = CashcapitalValue + posCapitalValue
   const totalCashLeft = (cashLeftValue + salesCashValue)
   const cafeTotal = cashLeftValue + posCalculationResult;
-  const cafeDifference = posCalculationResult - CashcapitalValue;
+  const cafeDifference = cafeTotal - CashcapitalValue;
   const salesTotal = salesCashValue + salesPosValue;
 
   if (posCalculationResult > CashcapitalValue) {
@@ -28,13 +29,14 @@ function calculate() {
   } else {
     profitOrLoss.innerHTML = `You made a loss of + ${cafeDifference}`;
   }
-  profitOrLoss.style.color = posCalculationResult > CashcapitalValue ? "green" : "red";
+  profitOrLoss.style.color = cafeTotal > CashcapitalValue ? "green" : "red";
+
 
   calculationReport.innerHTML += `
-    <p>Here's the breakdown</p>
+    <p>Here's the breakdown:</p>
     <p><Strong>Cash Capital</Strong>: ${CashcapitalValue}</p>
     <p><Strong>POS Capital</Strong>: ${posCapitalValue}</p>
-    <p></p>
+    <p><Strong>Total Capital</Strong>: ${totalCapital}</p>
     <h2>Cyber Cafe / POS</h2>
     <p><Strong>Cash Amount</Strong>: ${cashLeftValue}</p>
     <p><Strong>POS Amount</Strong>: ${posCalculationResult}</p>
@@ -43,7 +45,7 @@ function calculate() {
     <p><Strong>Cash Amount</Strong>: ${salesCashValue}</p>
     <p><Strong>POS Amount</Strong>: ${salesPosValue}</P>
     <p><Strong>Total</Strong>: ${salesTotal}</p>
-    <h2>Calculation Amount in POS</h2>
+    <h2>Amount in the POS for today</h2>
     <p>Current Amount - Amount Left(POS Capital) - Sales POS Amount = </p>
     <p>${currentPosAmountValue} - ${posCapitalValue} -  ${salesPosValue} = <strong>${posCalculationResult}</strong></p>
     <h3>Total Cash Left (New Capital) = ${totalCashLeft}
