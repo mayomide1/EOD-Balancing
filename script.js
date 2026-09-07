@@ -37,24 +37,34 @@ function calculate() {
   }
   profitOrLoss.style.color = cafeTotal > CashcapitalValue ? "green" : "red";
 
-  calculationReport.innerHTML += `
-    <h2>Here's the breakdown:</h2>
-    <p><Strong>Cash Capital</Strong>: ${CashcapitalValue}</p>
-    <p><Strong>POS Capital</Strong>: ${posCapitalValue}</p>
-    <p><Strong>Total Capital</Strong>: ${totalCapital}</p>
-    <h2>Cyber Cafe / POS</h2>
-    <p><Strong>Cash Amount</Strong>: ${cashLeftValue}</p>
-    <p><Strong>POS Amount</Strong>: ${posCalculationResult}</p>
-    <p><Strong>Total</Strong>: ${cafeTotal}</p>
-    <h2>SALES</h2>
-    <p><Strong>Cash Amount</Strong>: ${salesCashValue}</p>
-    <p><Strong>POS Amount</Strong>: ${salesPosValue}</P>
-    <p><Strong>Total</Strong>: ${salesTotal}</p>
-    <h2>Amount in the POS for today</h2>
-    <p>Current Amount - Amount Left(POS Capital) - Sales POS Amount = </p>
-    <p>${currentPosAmountValue} - ${posCapitalValue} -  ${salesPosValue} = <strong>${posCalculationResult}</strong></p>
-    <h3>Total Cash Left (New Capital) = ${totalCashLeft}
-    
+  calculationReport.innerHTML = `
+        <h2>📊 Financial Breakdown</h2>
+        <h2>💰 Capital</h2>
+        <p><strong>Cash Capital</strong> <span>₦${CashcapitalValue.toLocaleString()}</span></p>
+        <p><strong>POS Capital</strong> <span>₦${posCapitalValue.toLocaleString()}</span></p>
+        <p class="total-row"><strong>Total Capital</strong> <strong>₦${totalCapital.toLocaleString()}</strong></p>
+        
+        <h2>💻 Cyber Cafe / POS</h2>
+        <p><strong>Cash Amount</strong> <span>₦${cashLeftValue.toLocaleString()}</span></p>
+        <p><strong>POS Amount</strong> <span>₦${posCalculationResult.toLocaleString()}</span></p>
+        <p class="total-row"><strong>Total</strong> <strong>₦${cafeTotal.toLocaleString()}</strong></p>
+        
+        <h2>📈 Sales</h2>
+        <p><strong>Cash Amount</strong> <span>₦${salesCashValue.toLocaleString()}</span></p>
+        <p><strong>POS Amount</strong> <span>₦${salesPosValue.toLocaleString()}</span></p>
+        <p class="total-row"><strong>Total</strong> <strong>₦${salesTotal.toLocaleString()}</strong></p>
+        
+        <h2>💳 POS Calculation</h2>
+        <p class="formula-row">
+            <strong>${currentPosAmountValue.toLocaleString()}</strong> 
+            - <strong>${posCapitalValue.toLocaleString()}</strong> 
+            - <strong>${salesPosValue.toLocaleString()}</strong> 
+            = <strong>₦${posCalculationResult.toLocaleString()}</strong>
+        </p>
+        
+        <h2>🏦 Total Cash Left (New Capital)</h2>
+        <p class="total-row"><strong>Total</strong> <strong>₦${totalCashLeft.toLocaleString()}</strong></p>
+        
     `;
 }
 
@@ -70,20 +80,28 @@ function addExpense() {
   };
   expenseList.push(newExpense);
 
+  const expenseItems = expenseList
+    .map(
+      (e, index) => `
+        <li>
+            <span class="expense-name">${index + 1}. ${e.expense}</span>
+            <span class="expense-amount">₦${e.amount.toLocaleString()}</span>
+        </li>
+    `,
+    )
+    .join("");
+
   let totalSum = 0;
   for (const expense of expenseList) {
     totalSum += Number(expense.amount);
   }
 
-  expensesList.innerHTML =
-    `<h2>Expenses</h2>` +
-    expenseList
-      .map(
-        (e, index) =>
-          `
-        <p>${index + 1}. ${e.expense} - ${e.amount}</p>
-        `,
-      )
-      .join("") +
-    `<p>Total: ${totalSum}</p>`;
+  expensesList.innerHTML = `
+        <h2>📝 Expenses List</h2>
+        <ul>${expenseItems}</ul>
+        <div class="expenses-total">
+            <span>Total Expenses</span>
+            <span>₦${totalSum.toLocaleString()}</span>
+        </div>
+  `;
 }
