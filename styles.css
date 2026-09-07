@@ -56,7 +56,8 @@ input::placeholder {
   color: #9ca3af;
 }
 
-#calculate-btn {
+#calculate-btn,
+#add-expense-btn {
   margin-top: 30px;
   padding: 14px 20px;
   border: none;
@@ -90,7 +91,8 @@ input::placeholder {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
 }
 
-#calculation-report {
+#calculation-report,
+#expenses-list {
   max-width: 600px;
   margin: 30px auto 0;
   padding: 25px;

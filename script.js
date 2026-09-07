@@ -1,4 +1,4 @@
-const Cashcapital = document.getElementById("cash-capital");
+const cashCapital = document.getElementById("cash-capital");
 const cashLeft = document.getElementById("cash-left");
 const salesCash = document.getElementById("sales-cash");
 const salesPos = document.getElementById("sales-pos");
@@ -7,11 +7,16 @@ const posCapital = document.getElementById("pos-capital");
 const calculateBtn = document.getElementById("calculate-btn");
 const calculationReport = document.getElementById("calculation-report");
 const profitOrLoss = document.getElementById("profit-or-loss");
+const addExpenseBtn = document.getElementById("add-expense-btn");
+const expense = document.getElementById("expense");
+const expensesList = document.getElementById("expenses-list");
+const expenseAmount = document.getElementById("expense-amount");
 
 calculateBtn.addEventListener("click", calculate);
+addExpenseBtn.addEventListener("click", addExpense)
 
 function calculate() {
-  const CashcapitalValue = Number(Cashcapital.value);
+  const CashcapitalValue = Number(cashCapital.value);
   const cashLeftValue = Number(cashLeft.value);
   const salesCashValue = Number(salesCash.value);
   const salesPosValue = Number(salesPos.value);
@@ -33,7 +38,7 @@ function calculate() {
 
 
   calculationReport.innerHTML += `
-    <p>Here's the breakdown:</p>
+    <h2>Here's the breakdown:</h2>
     <p><Strong>Cash Capital</Strong>: ${CashcapitalValue}</p>
     <p><Strong>POS Capital</Strong>: ${posCapitalValue}</p>
     <p><Strong>Total Capital</Strong>: ${totalCapital}</p>
@@ -51,4 +56,31 @@ function calculate() {
     <h3>Total Cash Left (New Capital) = ${totalCashLeft}
     
     `;
+}
+
+    const expenseList = []
+
+function addExpense(){
+    const expenseInput = expense.value
+    const expenseAmountValue = expenseAmount.value
+
+    const newExpense = {
+        "expense": expenseInput, 
+        "amount":expenseAmountValue
+    }
+    expenseList.push(newExpense)
+
+    let totalSum = 0;
+    for(const expense of expenseList){
+        totalSum += Number(expense.amount)
+    }
+    
+    expensesList.innerHTML = 
+    `<h2>Expenses</h2>` +
+    expenseList.map((e, index) => 
+        `
+        <p>${index + 1}. ${e.expense} - ${e.amount}</p>
+        `    
+    ).join("") + `<p>Total: ${totalSum}</p>`   
+    
 }
