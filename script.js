@@ -13,7 +13,7 @@ const expensesList = document.getElementById("expenses-list");
 const expenseAmount = document.getElementById("expense-amount");
 
 calculateBtn.addEventListener("click", calculate);
-addExpenseBtn.addEventListener("click", addExpense)
+addExpenseBtn.addEventListener("click", addExpense);
 
 function calculate() {
   const CashcapitalValue = Number(cashCapital.value);
@@ -22,9 +22,10 @@ function calculate() {
   const salesPosValue = Number(salesPos.value);
   const currentPosAmountValue = Number(currentPosAmount.value);
   const posCapitalValue = Number(posCapital.value);
-  const posCalculationResult = currentPosAmountValue - posCapitalValue - Number(salesPosValue);
-  const totalCapital = CashcapitalValue + posCapitalValue
-  const totalCashLeft = (cashLeftValue + salesCashValue)
+  const posCalculationResult =
+    currentPosAmountValue - posCapitalValue - Number(salesPosValue);
+  const totalCapital = CashcapitalValue + posCapitalValue;
+  const totalCashLeft = cashLeftValue + salesCashValue;
   const cafeTotal = cashLeftValue + posCalculationResult;
   const cafeDifference = cafeTotal - CashcapitalValue;
   const salesTotal = salesCashValue + salesPosValue;
@@ -35,7 +36,6 @@ function calculate() {
     profitOrLoss.innerHTML = `You made a loss of + ${cafeDifference}`;
   }
   profitOrLoss.style.color = cafeTotal > CashcapitalValue ? "green" : "red";
-
 
   calculationReport.innerHTML += `
     <h2>Here's the breakdown:</h2>
@@ -58,29 +58,32 @@ function calculate() {
     `;
 }
 
-    const expenseList = []
+const expenseList = [];
 
-function addExpense(){
-    const expenseInput = expense.value
-    const expenseAmountValue = expenseAmount.value
+function addExpense() {
+  const expenseInput = expense.value;
+  const expenseAmountValue = expenseAmount.value;
 
-    const newExpense = {
-        "expense": expenseInput, 
-        "amount":expenseAmountValue
-    }
-    expenseList.push(newExpense)
+  const newExpense = {
+    expense: expenseInput,
+    amount: expenseAmountValue,
+  };
+  expenseList.push(newExpense);
 
-    let totalSum = 0;
-    for(const expense of expenseList){
-        totalSum += Number(expense.amount)
-    }
-    
-    expensesList.innerHTML = 
+  let totalSum = 0;
+  for (const expense of expenseList) {
+    totalSum += Number(expense.amount);
+  }
+
+  expensesList.innerHTML =
     `<h2>Expenses</h2>` +
-    expenseList.map((e, index) => 
-        `
+    expenseList
+      .map(
+        (e, index) =>
+          `
         <p>${index + 1}. ${e.expense} - ${e.amount}</p>
-        `    
-    ).join("") + `<p>Total: ${totalSum}</p>`   
-    
+        `,
+      )
+      .join("") +
+    `<p>Total: ${totalSum}</p>`;
 }
