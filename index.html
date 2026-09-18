@@ -14,39 +14,41 @@
         <div class="section-header">
           <span class="icon">🧮</span> Main Calculation
         </div>
+        <div id="calculation-container">
+          <div class="sub-header">
+            <span class="icon">💰</span> Cash Capital
+          </div>
+          <input
+            type="number"
+            placeholder="Enter Cash Capital"
+            id="cash-capital"
+          />
 
-        <div class="sub-header"><span class="icon">💰</span> Cash Capital</div>
-        <input
-          type="number"
-          placeholder="Enter Cash Capital"
-          id="cash-capital"
-        />
+          <div class="sub-header">
+            <span class="icon">💻</span> Cyber Cafe / POS
+          </div>
+          <input type="number" placeholder="Enter Cash Left" id="cash-left" />
 
-        <div class="sub-header">
-          <span class="icon">💻</span> Cyber Cafe / POS
+          <div class="sub-header"><span class="icon">📈</span> Sales</div>
+          <input type="number" placeholder="Sales Cash" id="sales-cash" />
+          <input type="number" placeholder="Sales POS Amount" id="sales-pos" />
+
+          <div class="sub-header">
+            <span class="icon">💳</span> Calculating Amount in POS
+          </div>
+          <input
+            type="number"
+            placeholder="Current Amount in POS"
+            id="current-pos-amount"
+          />
+          <input
+            type="number"
+            placeholder="Enter amount left in POS yesterday"
+            id="pos-capital"
+          />
+
+          <button class="btn btn-primary" id="calculate-btn">Calculate</button>
         </div>
-        <input type="number" placeholder="Enter Cash Left" id="cash-left" />
-
-        <div class="sub-header"><span class="icon">📈</span> Sales</div>
-        <input type="number" placeholder="Sales Cash" id="sales-cash" />
-        <input type="number" placeholder="Sales POS Amount" id="sales-pos" />
-
-        <div class="sub-header">
-          <span class="icon">💳</span> Calculating Amount in POS
-        </div>
-        <input
-          type="number"
-          placeholder="Current Amount in POS"
-          id="current-pos-amount"
-        />
-        <input
-          type="number"
-          placeholder="Enter amount left in POS yesterday"
-          id="pos-capital"
-        />
-
-        <button class="btn btn-primary" id="calculate-btn">Calculate</button>
-
         <div id="profit-or-loss"></div>
         <div id="calculation-report"></div>
       </div>

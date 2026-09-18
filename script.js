@@ -11,9 +11,13 @@ const addExpenseBtn = document.getElementById("add-expense-btn");
 const expense = document.getElementById("expense");
 const expensesList = document.getElementById("expenses-list");
 const expenseAmount = document.getElementById("expense-amount");
+const calculationContainer = document.getElementById("calculation-container");
 
 calculateBtn.addEventListener("click", calculate);
 addExpenseBtn.addEventListener("click", addExpense);
+
+profitOrLoss.style.display = "none";
+calculationReport.style.display = "none";
 
 function calculate() {
   const CashcapitalValue = Number(cashCapital.value);
@@ -64,8 +68,21 @@ function calculate() {
         
         <h2>🏦 Total Cash Left (New Capital)</h2>
         <p class="total-row"><strong>Total</strong> <strong>₦${totalCashLeft.toLocaleString()}</strong></p>
-        
+        <button class="btn btn-primary" id="add-new-calc">Add New Calculation</button>
     `;
+
+  document
+    .getElementById("add-new-calc")
+    .addEventListener("click", addNewCalculation);
+  profitOrLoss.style.display = "block";
+  calculationReport.style.display = "block";
+  calculationContainer.style.display = "none";
+}
+
+function addNewCalculation() {
+  calculationContainer.style.display = "block";
+  profitOrLoss.style.display = "none";
+  calculationReport.style.display = "none";
 }
 
 const expenseList = [];
@@ -104,4 +121,7 @@ function addExpense() {
             <span>₦${totalSum.toLocaleString()}</span>
         </div>
   `;
+
+  expense.value = "";
+  expenseAmount.value = "";
 }
