@@ -26,8 +26,7 @@ function calculate() {
   const salesPosValue = Number(salesPos.value);
   const currentPosAmountValue = Number(currentPosAmount.value);
   const posCapitalValue = Number(posCapital.value);
-  const posCalculationResult =
-    currentPosAmountValue - posCapitalValue - Number(salesPosValue);
+  const posCalculationResult = currentPosAmountValue - posCapitalValue - Number(salesPosValue);
   const totalCapital = CashcapitalValue + posCapitalValue;
   const totalCashLeft = cashLeftValue + salesCashValue;
   const cafeTotal = cashLeftValue + posCalculationResult;
@@ -35,9 +34,9 @@ function calculate() {
   const salesTotal = salesCashValue + salesPosValue;
 
   if (posCalculationResult > CashcapitalValue) {
-    profitOrLoss.innerHTML = `You made a profit of + ${cafeDifference}`;
+    profitOrLoss.innerHTML = `You made a profit of ${cafeDifference}`;
   } else {
-    profitOrLoss.innerHTML = `You made a loss of + ${cafeDifference}`;
+    profitOrLoss.innerHTML = `You made a loss of ${cafeDifference}`;
   }
   profitOrLoss.style.color = cafeTotal > CashcapitalValue ? "green" : "red";
 
